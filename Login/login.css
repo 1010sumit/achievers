@@ -1,0 +1,229 @@
+/* Writing general css */
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+/* The root is use to add variables in inside the css and declaring the value which we can use it when ever we need
+ */
+:root {
+    --color-primary: #6c63ff;
+    --color-success: #00bf8e;
+    --color-warning: #f7c94b;
+    --color-danger: #f75842;
+    --color-danger-varient: rgba(247, 88, 66, 0.4);
+    --color-white: #fff;
+    --color-light: rgba(255, 255, 255, 0.7);
+    --color-black: #000;
+    --color-bg: #1f2641;
+    --color-bg1: #2e3267;
+    --color-bg2: #424890;
+
+    --container-width-lg: 80%;
+    --container-width-md: 90%;
+    --container-width-sm: 94%;
+
+    --transition: all 400ms ease;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    color: var(--color-white);
+    background-color: var(--color-bg);
+}
+
+.container {
+    width: var(--container-width-lg);
+    margin: 0 auto;
+    /* we want our conatianer in middle */
+}
+
+section {
+    padding: 6rem 0;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.4 rem;
+}
+
+h2 {
+    font-size: 2.0rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+a {
+    color: var(--color-black);
+}
+
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--color-white);
+    color: var(--color-black);
+    border: 1px solid transparent;
+    padding: 0.8rem 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    margin-right: 1.5rem;
+
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.btn-primary {
+    background: var(--color-danger);
+    color: var(--color-white);
+}
+body {
+    font-family: 'Merriweather Sans', sans-serif;
+    line-height: 1.7;
+    color: var(--color-white);
+    background-color: var(--color-white);
+}
+.logo{
+    color: var(--color-bg);
+    font-size: 2rem;
+    font-family: 'Permanent Marker';
+}
+
+
+nav {
+    background: var(--color-white);
+    width: 100vw;
+    height: 5rem;
+    position: fixed;
+    /* If we scroll our page the navbar should be fixed */
+    top: 0;
+    z-index: 11;
+
+}
+
+
+/* Change navbar style when scroll */
+.window-scroll {
+    background: var(--color-primary);
+    box-shadow: rgba(0, 0, 0, 0.2);
+}
+
+.nav__container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__menu {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.nav__menu a {
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.nav__menu a:hover {
+    color: var(--color-bg2);
+}
+
+.image{
+   width: 170%;
+   margin-top: 19%;
+   margin-left: -25%;
+}
+
+h2 {
+    margin: 2rem;
+    color:var(--color-warning)
+}
+.container__top {
+    background-color: var(--color-bg1);
+    color: var(--color-white);
+    border: 1rem solid transparent;
+    border-radius: 1rem;
+    margin-top: 12% ;
+    margin-left: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+.container
+{
+    display: flex;
+    gap: 10rem;
+}
+
+
+
+.email,
+.password__container {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    line-height: 2rem;
+}
+
+.email__input,
+.password__input {
+    width: 23rem;
+    height: 2.5rem;
+    border-radius: 0.35rem;
+}
+
+.btn__container {
+    margin-left: 9rem;
+}
+.btn {
+    display: inline-block;
+    background: var(--color-danger);
+    color: var(--color-white);
+    border: 1px solid transparent;
+    padding: 1rem 2rem;
+    font-weight: 500;
+    transition: var(--transition);
+border-radius: 1rem;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}

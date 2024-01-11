@@ -1,0 +1,22 @@
+canvas {
+    display: block;
+    margin: auto;
+    border: 4px solid black;
+background-color: rgba(238, 228, 218, 0.5);
+    top: 13rem;
+}
+body{
+    background-color:  rgba(119, 110, 101, 0.9);
+}
+#playbutton {
+    width: 100px;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+}

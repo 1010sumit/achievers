@@ -1,0 +1,301 @@
+/* Writing general css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+/* The root is use to add variables in inside the css and declaring the value which we can use it when ever we need
+ */
+:root {
+   /* --color-font : #1f2641; */
+   --color-primary: #6c63ff;
+   --color-success: #00bf8e;
+   --color-warning: #f7c94b;
+   --color-danger: #f75842;
+   --color-danger-varient: rgba(247, 88, 66, 0.4);
+   --color-white: #fff;
+   --color-light: rgba(255, 255, 255, 0.7);
+   --color-black: #000;
+   --color-bg: #1f2641;
+   --color-bg1: #2e3267;
+   --color-bg2: #424890;
+
+
+    --container-width-lg: 80%;
+    --container-width-md: 90%;
+    --container-width-sm: 94%;
+
+    --transition: all 400ms ease;
+}
+
+body {
+   
+   
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    color: var(--color-bg);
+    background-color: var(--color-white);
+}
+
+.logo{
+    color: var(--color-bg);
+    font-size: 2rem;
+    font-family: 'Permanent Marker';
+}
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+/*navbar*/
+
+nav {
+    background:var(--color-white);
+    height: 5rem;
+    position: fixed;
+    width: 100vw;
+    /* If we scroll our page the navbar should be fixed */
+    top: 0;
+    z-index: 11;
+    border-radius: 0.2rem;
+
+}
+/* Change navbar style when scroll */
+.window-scroll {
+    background: var(--color-white);
+    box-shadow: rgba(0, 0, 0, 01);
+    /* color: var(--color-white); */
+}
+
+.nav__container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+   
+}
+
+.nav__menu {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    font-weight: 400;
+
+}
+
+.nav__menu a {
+    font-size: 0.9rem;
+    transition: var(--transition);
+    color: var(--color-bg1);
+}
+
+.nav__menu a:hover {
+    color: var(--color-success);
+}
+
+/*end navbar*/
+
+/*main page*/
+h1{
+    color: brown;
+    font-size: 2.3rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+
+h2{
+    color: var(--color-danger);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:large;
+}
+
+.header__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    height: 100%;
+}
+.first .header__left h1{
+    margin-left: 23rem;
+    margin-right: 10rem;
+    margin-bottom:2rem;
+    font-size: 4rem;
+
+}
+
+.second .header__left p{
+    margin-left: 10rem;
+    margin-right: 10rem;
+    
+    margin-bottom:8rem;
+
+}
+.second .header__left h1{
+    margin-left: 23rem;
+    margin-right: 10rem;
+    margin-bottom:2rem;
+
+
+}
+.first .header__left p{
+    margin-left: 10rem;
+    margin-right: 10rem;
+    font-weight: 200;
+    margin-bottom:8rem;
+
+}
+
+
+
+.header__left{
+    margin: 5rem ;
+    font-weight: lighter;
+    font-family: 'Arvo';
+    font-size: 20px;
+}
+
+.header__right-image{
+    width: 80%;
+    margin-bottom: 8rem;
+    margin-left: 1.5rem;
+}
+
+.foth img{
+    border-radius: 0.5rem;
+   margin-left: 7rem;
+   margin-top: 3rem;
+   width: 80%;
+}
+
+.sth img{
+    width: 120%;
+}
+.sth .header__left{
+    margin-top: -3rem;
+}
+ 
+.last img{
+    margin-top: 2rem;
+}
+
+.fth img{
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*footer*/
+footer{
+    background: var(--color-bg);
+    padding-top: 2rem;
+    font-size: 0.9rem;
+    flex-shrink: 50;
+    margin-top: 7rem;
+}
+.footer__container{
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(4 ,1fr);
+}
+.footer__container  div h4{
+    margin-bottom: 1.8rem;
+    font-size: 1.2rem ;
+    text-transform: capitalize;
+}
+
+
+
+.footer__logo{
+    margin: 2rem;
+  
+}   
+.footer ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer__4 p{
+    font-size: 1rem;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+
+}
+footer ul li
+{
+    margin-bottom: 0.7rem;
+}
+footer ul li a:hover{
+    color: #ffffff;
+	padding-left: 0.5rem;
+
+}
+.social-links{
+    margin: 2rem;
+}
+.footer .social-links a{
+    display:inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 80%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer__copyright{
+    text-align: center;
+    padding: 1.2rem 0;
+    border-top: 1px solid whitesmoke;
+    background-color: var(--color-bg);
+
+}
+
+.footer .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*end*/
+  

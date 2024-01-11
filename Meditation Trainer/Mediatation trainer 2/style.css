@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
+* 
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    background: #f6f6f6 no-repeat center center/cover;
+    min-height: 100vh;
+    overflow: hidden;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+#text
+{
+    font-size: 35px;
+    color: #2d2e2e;
+    font-family: 'Open sans condensed', sans-serif;
+}
+
+h1
+{
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    color: #2d2e2e;
+}
+
+.container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 300px;
+    width: 300px;
+    position: relative;
+    transform: scale(1);
+}
+
+.circle
+{
+    background-color: #f6f6f6;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%; /* Circle */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; 
+}
+
+.gradient-circle
+{
+    background: conic-gradient(
+    #f73f52 0%,
+    #f73f52 40%,
+    #7986c7 40%,
+    #7986c7 60%,
+    #ffea85 60%,
+    #ffea85 100%
+  );
+  height: 320px;
+  width: 320px;
+  z-index: -3;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.gradient-circle-blur
+{
+    background: conic-gradient(
+    #f73f52 0%,
+    #f73f52 40%,
+    #7986c7 40%,
+    #7986c7 60%,
+    #ffea85 60%,
+    #ffea85 100%
+  );
+  height: 320px;
+  width: 320px;
+  z-index: -3;
+  border-radius: 50%;
+  position: absolute;
+  filter: blur(15px);
+  top: -10px;
+  left: -10px;
+}
+
+.pointer
+{
+    background-color: rgb(41, 41, 41);
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: block;
+}
+
+.pointer-container {
+    position: absolute;
+    top: -40px;
+    left: 140px;
+    width: 20px;
+    height: 190px;
+    animation: rotate 7.5s linear forwards infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .container.grow
+  {
+      animation: grow 3s linear forwards;
+  }
+
+  @keyframes grow
+  {
+      from {
+          transform: scale(1);
+      }
+      to {
+          transform: scale(1.2);
+      }
+  }
+  .container.shrink
+  {
+      animation: shrink 3s linear forwards;
+  }
+  @keyframes shrink
+  {
+      from {
+          transform: scale(1.2);
+      }
+      to {
+          transform: scale(1);
+      }
+  }
