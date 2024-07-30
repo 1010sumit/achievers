@@ -31,5 +31,3 @@ https://user-images.githubusercontent.com/74208761/228843827-c088a10f-7cfe-4cf1-
 ## Outcome: 
 
 It will help the students develop the necessary skills of problem-solving and decision making which will help them accomplish their goals more efficiently.
-
-Live demo: https://arvind2602.github.io/Achiever/
