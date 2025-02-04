@@ -227,3 +227,13 @@ border-radius: 1rem;
     color: var(--color-white);
     border-color: var(--color-white);
 }
+
+.switch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+.switch p a{
+    color: var(--color-danger)
+}

@@ -13,6 +13,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <!-- Font for logo -->
     <link href='https://fonts.googleapis.com/css?family=Permanent Marker' rel='stylesheet'>
+
+    <script src="../main.js"></script>
 </head>
 
 <body>
@@ -21,16 +23,16 @@
     <div class="landingpage">
         <nav>
             <div class="container nav__container">
-                <a href="#" class="logo">ACHIEVERS</a>
+                <a href="../index.html" class="logo">ACHIEVERS</a>
                 <ul class="nav__menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="./About/index.html">About</a></li>
                     <li><a href="#">Virtual Labs</a></li>
                     <li><a href="#kontact">Contact</a></li>
                 </ul>
-                <div>
-                    <a href="./Login/login.html" class="btn btn-primary">Log in</a>
-                    <a href="signup.html" style="color: rgb(27, 27, 63);"> Sign Up</a>
+                <div id="login-signup">
+                    <a href="../Login/login.html" class="btn btn-primary">Log in</a>
+                    <a href="../SignUp/signup.html" style="color: rgb(27, 27, 63);"> Sign Up</a>
                 </div>
             </div>
         </nav>
@@ -229,7 +231,7 @@
         </div>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <script src="main.js"></script>
+        <script src="main.js" defer></script>
 
 
 
@@ -283,6 +285,13 @@
                     <small>Copyright</small>
                 </div>
             </div>
+
+            <script>
+                // Show logout button if the user is logged in
+                if (localStorage.getItem("showLogin") === "false") {
+                    document.getElementById("logout").style.display = "block";
+                }
+            </script>
     </div>
     </footer>
 

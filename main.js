@@ -15,3 +15,7 @@ faqs.forEach(faq=>{
         faq.classList.toggle('open');
     })
 })
+
+
+
+
