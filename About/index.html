@@ -26,8 +26,9 @@
                 <a href="../index.html" class="logo">ACHIEVERS</a>
                 <ul class="nav__menu">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="./About/index.html">About</a></li>
+                    <li><a href="#">About</a></li>
                     <li><a href="#">Virtual Labs</a></li>
+                    <li><a href="../mentor/index.html">Mentors</a></li>
                     <li><a href="#kontact">Contact</a></li>
                 </ul>
                 <div id="login-signup">
@@ -295,7 +296,13 @@
     </div>
     </footer>
 
-
+    <script>
+        window.onload = function() {
+          if (localStorage.getItem("isLoggedIn") === "true") {
+            document.getElementById("login-signup").style.display = "none"; // Hide login/signup section
+          }
+        };
+      </script>
 
 </body>
 

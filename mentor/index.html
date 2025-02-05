@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav__container">
+            <a href="#" class="logo">ACHIEVERS</a>
+            <ul class="nav__menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../About/index.html">About</a></li>
+                <li><a href="#">Dost</a></li>
+                <li><a href="#">Mentors</a></li>
+                <li><a href="../index.html#kontact">Contact</a></li>
+            </ul>
+
+            <div id="login-signup">
+                <a href="./Login/login.html" class="btn btn-primary" >Log in</a>
+                <a href="./SignUp/signup.html" style="color: rgb(255, 255, 255);"> Sign Up</a>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <div style="padding-top: 100px;">
+        <div class="mentor-page">
+            <h1>Meet Our Mentors</h1>
+            <div class="mentor-cards-container" id="mentorCardsContainer"></div>
+        </div>
+    
+        <div class="form-popup" id="appointmentForm">
+            <div class="form-container">
+              <h2>Book an Appointment</h2>
+              <form id="appointment">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        
+                <label for="issues">Key Issues to Discuss</label>
+                <textarea id="issues" name="issues" placeholder="What issues would you like to discuss?" required></textarea>
+        
+                <label for="meeting-time">Meeting Time</label>
+                <input type="datetime-local" id="meeting-time" name="meeting_time" required>
+        
+                <button type="submit" class="btn" onclick="sendMail()">Submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+              </form>
+            </div>
+          </div>
+    </div>
+    
+    <!-- =========    Footer    ========== -->
+    <footer class="footer" id="kontact">
+        <div class="container footer__container">
+            <div class="footer__1">
+                <a href="index.html" class="footer__logo logo" style="color: white;">ACHIEVERS</a>
+
+            </div>
+
+            <div class="footer__2">
+                <h4>Helpful Links</h4>
+                <ul class="helpfullinks">
+                    <li> <a href="index.html">Home</a> </li>
+                    <li> <a href="">About</a> </li>
+                    <li> <a href="">Courses</a> </li>
+                    <li> <a href="#kontact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__3">
+                <h4>Privacy</h4>
+                <ul class="privacy">
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">Terms and conditions</a></li>
+                    <li><a href="">refund Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__4">
+                <h4>Contact Us</h4>
+                <ul class="cpntact">
+                    <li><a href="">+91 7710825061</a></li>
+                    <li><a href="">sumitprajapati1010@gmail.com</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer__socials">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+
+            </div>
+
+            <div class="footer__copyright">
+                <small>Copyright</small>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!-- =========    Footer    ========== -->
+    
+      <script>
+        window.onload = function() {
+          if (localStorage.getItem("isLoggedIn") === "true") {
+            document.getElementById("login-signup").style.display = "none"; // Hide login/signup section
+          }
+        };
+      </script>
+    <script src="script.js"></script>
+</body>
+</html>
