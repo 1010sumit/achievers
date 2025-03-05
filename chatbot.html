@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dost</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .chat-container {
+      width: 400px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chat-header {
+      background: #4a90e2;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    .chat-body {
+      padding: 15px;
+      height: 300px;
+      overflow-y: auto;
+      background: #fafafa;
+    }
+    .chat-footer {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    .chat-footer input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+    .chat-footer button {
+      padding: 10px 15px;
+      background: #4a90e2;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .message {
+      margin: 10px 0;
+    }
+    .message p {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 15px;
+      max-width: 80%;
+    }
+    .message.user p {
+      background: #4a90e2;
+      color: #fff;
+      align-self: flex-end;
+    }
+    .message.bot p {
+      background: #e5e5ea;
+      color: #000;
+      align-self: flex-start;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>Dost</h2>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-footer">
+      <input type="text" id="userInput" placeholder="Type your question..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <script>
+    // Get DOM elements
+    const chatBody = document.getElementById("chatBody");
+    const userInput = document.getElementById("userInput");
+    const sendBtn = document.getElementById("sendBtn");
+
+    // Predefined responses based on keywords
+    const responses = [
+      { keywords: ["exam", "test", "quiz"], response: "For exam preparation, make sure to review your notes and solve past papers." },
+      { keywords: ["assignment", "homework"], response: "Break your assignments into smaller tasks and start early to manage your workload." },
+      { keywords: ["deadline", "due"], response: "Keep track of your deadlines. It helps to create a schedule and stick to it." },
+      { keywords: ["project", "presentation"], response: "Plan your projects well and don’t hesitate to ask for help if needed. Practice your presentation too!" },
+      { keywords: ["doubt", "confused", "question"], response: "Could you please elaborate on your doubt? I’m here to help!" },
+      // Additional responses:
+      { keywords: ["hii", "hello", "hey", "hi"], response: "Hello! I'm Dost, your Achievers chatbot. How can I assist you with your doubts today?" },
+      { keywords: ["admission", "apply", "application"], response: "For admission queries, please check our admission requirements on the website or contact the admissions office for detailed guidance." },
+      { keywords: ["course", "major", "subject"], response: "Choosing a course can be challenging. Could you please specify which subject area you need help with?" },
+      { keywords: ["fee", "tuition", "cost"], response: "For fee-related queries, please visit our fee structure page or get in touch with the finance department for more details." },
+      { keywords: ["library", "lab", "facility"], response: "Our campus offers state-of-the-art facilities. For more information on our library and labs, check out our facilities page." },
+      { keywords: ["career", "job", "internship"], response: "Career guidance is essential. I recommend visiting our career services page for internship opportunities, job fairs, and counseling sessions." },
+      { keywords: ["code", "programming", "bug", "error"], response: "If you're encountering technical issues or coding errors, please share the details so I can help troubleshoot." },
+      { keywords: ["revision", "review", "revisit"], response: "Revising your notes regularly is key. Consider forming a study group or consulting your instructor if you're unsure about a topic." },
+      { keywords: ["timetable", "schedule", "exam schedule"], response: "You can find the latest exam timetable on the student portal. Would you like a link to that page?" },
+      { keywords: ["motivation", "stressed", "overwhelmed"], response: "Remember, every challenge is an opportunity to learn. Take breaks, stay organized, and reach out to teachers or peers if you need support." },
+      { keywords: ["faq", "frequently", "common"], response: "Some common queries include admission requirements, fee structures, course details, and campus facilities. What specifically would you like to know?" },
+      { keywords: ["class", "lecture", "session"], response: "For class schedules and lecture timings, please refer to the academic calendar available on our website." },
+      { keywords: ["technique"], response: "For techniques related to your subject, please refer to the resources available on our website or ask your teacher for a demonstration." }
+      // Add more keyword-response pairs as needed
+    ];
+
+    // Function to determine the bot's reply
+    function getBotResponse(message) {
+      const lowerMsg = message.toLowerCase();
+      for (let pair of responses) {
+        for (let keyword of pair.keywords) {
+          if (lowerMsg.includes(keyword)) {
+            return pair.response;
+          }
+        }
+      }
+      return "I'm not sure I understand. Can you please provide more details?";
+    }
+
+    // Function to append messages to the chat window
+    function appendMessage(sender, text) {
+      const messageDiv = document.createElement("div");
+      messageDiv.className = "message " + sender;
+      const messageContent = document.createElement("p");
+      messageContent.innerText = text;
+      messageDiv.appendChild(messageContent);
+      chatBody.appendChild(messageDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // Event listener for send button click
+    sendBtn.addEventListener("click", function() {
+      const message = userInput.value.trim();
+      if (message !== "") {
+        appendMessage("user", message);
+
+        // Check for "quiz" keyword
+        if (message.toLowerCase().includes("quiz")) {
+          if (confirm("Do you want to go to the quiz page?")) {
+            window.location.href = "./Quiz/crsecondary.html";
+            return; // Stop further processing after redirect
+          }
+        }
+        // Check for "technique" keyword
+        else if (message.toLowerCase().includes("technique")) {
+          if (confirm("Do you want to go to the technique page?")) {
+            window.location.href = "./Techniques/front.html";
+            return; // Stop further processing after redirect
+          }
+        }
+
+        const botReply = getBotResponse(message);
+        setTimeout(() => {
+          appendMessage("bot", botReply);
+        }, 500); // Simulate a short delay
+        userInput.value = "";
+      }
+    });
+
+    // Send message on Enter key press
+    userInput.addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        sendBtn.click();
+      }
+    });
+  </script>
+  
+</body>
+</html>
