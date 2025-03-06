@@ -36,10 +36,8 @@
                     <li><a href="./mentor/index.html">Mentors</a></li>
                     <li><a href="#kontact">Contact</a></li>
                 </ul>
-
-                <div id="login-signup">
-                    <a href="./Login/login.html" class="btn btn-primary" >Log in</a>
-                    <a href="./SignUp/signup.html" style="color: rgb(255, 255, 255);"> Sign Up</a>
+                <div class="user_name">
+                    <h4 id="username_display">Hello, user</h4>
                 </div>
             </div>
         </nav>
@@ -328,8 +326,11 @@
 
     <!-- ========= end of    Footer   =========== -->
 
-      
-    <script src="main.js"></script>
+    <script>
+        const username = localStorage.getItem("username");
+        document.getElementById("username_display").innerHTML = `Hello, ${username}`;
+    </script>
+    <script src="main.js" type="module"></script>
 </body>
 
 </html>

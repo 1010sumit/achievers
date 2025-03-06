@@ -102,6 +102,10 @@ img {
 
 }
 
+input{
+    padding-left: 12px;
+}
+
 .btn:hover {
     background: transparent;
     color: var(--color-white);

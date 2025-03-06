@@ -90,6 +90,10 @@ img {
     object-fit: cover;
 }
 
+input{
+    padding-left: 12px;
+}
+
 .btn {
     display: inline-block;
     background: var(--color-white);

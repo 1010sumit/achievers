@@ -52,66 +52,116 @@
 
                     </div>
 
-                    <div class="name">
-
-                        <div class="inside_name">
-                            <h3>First Name</h3>
-                            <input type="text" placeholder="   First name" class="name_input">
-                        </div>
-                        
-                        <div class="inside_name">
-                            <h3>Last Name</h3>
-                            <input type="text" placeholder="   Last Name" class="name_input">
-                        </div>
-                        
-
-                    </div>
-
-                    <div class="name">
-                        <div class="inside_name">
-                            <h3>Age</h3>
-                            <input type="number" placeholder="   Age" class="name_input">
-                        </div>
+                    
+                        <form>
+                            <div class="name">
+                            <div class="inside_name">
+                                <h3>First Name</h3>
+                                <input type="text" placeholder="First name" class="name_input" value= "" id="first_name" required>
+                            </div>
                             
-                        <div class="inside_name">
-                            <h3>Gender</h3>
-                            <input type="text" placeholder="   Gender" class="name_input">
+                            <div class="inside_name">
+                                <h3>Last Name</h3>
+                                <input type="text" placeholder="Last Name" class="name_input" value="" id="last_name" required>
+                            </div>
+                            
+    
+                            </div>
+    
+                        <div class="name">
+                            <div class="inside_name">
+                                <h3>Age</h3>
+                                <input type="number" placeholder="Age" class="name_input" value="" id="age" required>
+                            </div>
+                                
+                            <div class="inside_name">
+                                <h3>Gender</h3>
+                                <input type="text" placeholder="Gender" class="name_input" value="" id="gender" required>
+                            </div>
                         </div>
-                    </div>
+    
+                        <div class="email">
+    
+                            <h3>Email</h3>
+                            <input type="email" placeholder="Enter your email address" class="email__input" value="" id="email" required>
+    
+                        </div>
+    
+                        <div class="password__container">
+    
+                            <h3>Create Password</h3>
+                            <input type=" password" placeholder="Enter a strong password" class="password__input" value="" id="password" required>
+    
+                        </div>
+    
+                        <div class="password__container">
+    
+                            <h3>Confirm Password</h3>
+                            <input type=" password" placeholder="Enter a strong password" class="password__input" required>
+    
+                        </div>
+    
+                        <div class="btn__container">
+                            <input type="submit" value="submit" id="submit" class="btn" >
+                        </div>
+                        </form>
+                        
 
-                    <div class="email">
-
-                        <h3>Email</h3>
-                        <input type="email" placeholder="      Enter your email address" class="email__input">
-
-                    </div>
-
-                    <div class="password__container">
-
-                        <h3>Create Password</h3>
-                        <input type=" password" placeholder="    Enter a strong password" class="password__input">
-
-                    </div>
-
-                    <div class="password__container">
-
-                        <h3>Confirm Password</h3>
-                        <input type=" password" placeholder="    Enter a strong password" class="password__input">
-
-                    </div>
-
-                    <div class="btn__container">
-                        <a href="../index.html#korses" class="btn" >
-                            <h3>SignUp</h3>
-                        </a>
-                    </div>
+                       
+                        
                     <div class="switch">
                         <p>Already have an account? <a href="../Login/login.html">Login here</a></p>
                     </div>
                     
                 </div>
             </div>
-            
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDx9UqfJgsK_EHh9kHDkDYt5RV3Q1adkqM",
+    authDomain: "achievers-aditya2.firebaseapp.com",
+    databaseURL: "https://achievers-aditya2-default-rtdb.firebaseio.com",
+    projectId: "achievers-aditya2",
+    storageBucket: "achievers-aditya2.appspot.com",
+    messagingSenderId: "514240238136",
+    appId: "1:514240238136:web:06f1a1d126f9d8be478ccd"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+document.getElementById("submit").addEventListener('click', function(e){
+    e.preventDefault();
+    
+    
+    set(ref(db, 'user/' + document.getElementById("email").value.replace(/\./g, ',')), {
+        firstname: document.getElementById("first_name").value,
+        lastname: document.getElementById("last_name").value,
+        age: document.getElementById("age").value,
+        gender: document.getElementById("gender").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+    })
+    .then(() => {
+        alert("Signup Successful!");
+        window.location.href = "../index.html";
+    })
+    .catch((error) => {
+        console.error("Error saving data: ", error);
+        alert("Error: " + error.message);
+    });
+
+    const first_name = document.getElementById("first_name").value;
+    const last_name = document.getElementById("last_name").value;
+    const full_name = first_name + " " + last_name;
+    localStorage.setItem("username", full_name);
+});
+
+    </script>
+
 </body>
 
 </html>

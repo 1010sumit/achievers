@@ -196,7 +196,9 @@ nav {
     color: var(--color-alert);
 }
 
-
+.user_name{
+    color: white;
+}
 
 /* ================     Header      =================*/
 .landingpage {
