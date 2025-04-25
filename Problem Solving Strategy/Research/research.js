@@ -153,6 +153,13 @@ document.getElementsByClassName("container")[0].innerHTML = `
     <div class="col">
         <h3 class="w-100"> Hii, you've scored ${correct} / ${total} </h3>
     </div>
+    <div class="col">
+        <button class="btn"><a href="../../foundational.html">Go To Course</a></button>
+    </div>
+
 `
+let task = JSON.parse(localStorage.getItem("completedTasks")) || [];
+task.push({ name: "Research Based Quiz", score: correct });
+localStorage.setItem("completedTasks", JSON.stringify(task));
 }
 loadQuestion(index);

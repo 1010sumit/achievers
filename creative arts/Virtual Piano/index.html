@@ -25,5 +25,9 @@
     </div>
     <script src="app.js"></script>
 </body>
-
+<script>
+    let task = JSON.parse(localStorage.getItem("completedTasks")) || [];
+    task.push({ name: "Piano", score: 5 });
+    localStorage.setItem("completedTasks", JSON.stringify(task));
+</script>
 </html>

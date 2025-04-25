@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
     <!-- ========Navbar=============  -->
     <div class="landingpage">
         <nav>
@@ -60,7 +59,7 @@
                         If you can get 1% better each day for one year, you’ll end up 37 times better by the time you’re
                         done - James Clear
                     </p>
-                    <a href="#korses" class="btn btn-primary" id="start-btn" onclick="window.location.href='http://127.0.0.1:7860'">Take a Quiz</a>
+                    <a href="#korses" class="btn btn-primary" id="start-btn">Get Started</a>
 
 
                 </div>
@@ -280,7 +279,7 @@
                 <ul class="helpfullinks">
                     <li> <a href="index.html">Home</a> </li>
                     <li> <a href="./About/index.html">About</a> </li>
-                    <li> <a href="#korses">Courses</a> </li>
+                    <li> <a href="">Courses</a> </li>
                     <li> <a href="#kontact">Contact</a></li>
                 </ul>
             </div>
@@ -305,10 +304,10 @@
 
             <div class="footer__socials">
                 <div class="social-links">
-                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
 
             </div>
@@ -327,12 +326,56 @@
     <!-- ========= end of    Footer   =========== -->
 
     <script>
-        const username = localStorage.getItem("username");
+
+        const username = localStorage.getItem("username")|| "User";
         document.getElementById("username_display").innerHTML = `Hello, ${username}`;
     </script>
     <script src="main.js" type="module"></script>
 
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const pred = urlParams.get("category");
+        localStorage.setItem("prediction", pred);
+        const category = localStorage.getItem("prediction") || "5"; // Default to 1 if not set
+        console.log("category is " + category);
+        document.getElementById("start-btn").textContent = "Go to your course 👇";
     
+        const courseMap = {
+            1: "youth",
+            2: "secondary",
+            3: "middle",
+            4: "preparatory",
+            5: "foundational"
+        };
+    
+        const courseIDs = ["foundational", "preparatory", "middle", "secondary", "youth"];
+    
+        courseIDs.forEach(id => {
+            const course = document.getElementById(id);
+            const startButton = course.querySelector("a.btn");
+
+    
+            if (id === courseMap[category]) {
+                // Mark as recommended
+                const label = document.createElement("p");
+                label.textContent = "*Recommended Course*";
+                label.style.color = "#f75842";
+                // label.style.fontWeight = "bold";
+                label.style.fontSize = "10px";
+                label.style.marginBottom = "10px";
+                startButton.parentNode.insertBefore(label, startButton);
+                
+            } else {
+                // Disable the button
+                startButton.style.pointerEvents = "none";
+                startButton.style.opacity = "0.5";
+                startButton.style.cursor = "not-allowed";
+                // startButton.textContent = "Not Available";
+                course.style.backgroundColor = "#2e3267";
+
+            }
+        });
+    </script>
 </body>
 
 </html>

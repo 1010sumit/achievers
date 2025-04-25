@@ -241,7 +241,11 @@ Next, get to the root cause of each problem. </p>
 
 
     <!-- ========= end of    Footer   =========== -->
-
+    <script>
+        let task = JSON.parse(localStorage.getItem("completedTasks")) || [];
+        task.push({ name: "Practice Pareto Analysis Technique", score: 10 });
+        localStorage.setItem("completedTasks", JSON.stringify(task));
+      </script>
 </body>
 </head>
 </html>

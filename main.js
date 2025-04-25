@@ -16,6 +16,8 @@ faqs.forEach(faq=>{
     })
 });
 
+localStorage.setItem([{}], "completedTasks");
+
 
 
 

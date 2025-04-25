@@ -72,6 +72,9 @@
             function rules() {
                 alert('Re arrange the image parts in a way that it correctly forms the picture. \nThe no. of steps taken will be counted.');
             }
+            let task = JSON.parse(localStorage.getItem("completedTasks")) || [];
+            task.push({ name: "Puzzle Game", score: 10 });
+            localStorage.setItem("completedTasks", JSON.stringify(task));
         </script>
     </div>
 </body>

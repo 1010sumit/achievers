@@ -191,6 +191,9 @@ function valid( offsetX, offsetY, newCurrent ) {
 function playButtonClicked() {
     newGame();
     document.getElementById("playbutton").disabled = true;
+    let task = JSON.parse(localStorage.getItem("completedTasks")) || [];
+    task.push({ name: "Tetris Game", score: 10 });
+    localStorage.setItem("completedTasks", JSON.stringify(task));
 }
 
 function newGame() {

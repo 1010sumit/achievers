@@ -535,6 +535,11 @@
     }, false);</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCWZ8ZDCH2"></script>
   <script>function gtag() { dataLayer.push(arguments) } window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "G-YCWZ8ZDCH2")</script>
+  <script>
+    let task = JSON.parse(localStorage.getItem("completedTasks")) || [];
+    task.push({ name: "Tower Top Game", score: 10 });
+    localStorage.setItem("completedTasks", JSON.stringify(task));
+  </script>
 </body>
 
 </html>

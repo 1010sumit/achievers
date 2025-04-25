@@ -23,5 +23,10 @@
     <div class="cursor"></div>
 
     <script src="main.js"></script>
+    <script>
+        let task = JSON.parse(localStorage.getItem("completedTasks")) || [];
+        task.push({ name: "Whack a Mole Game", score: 10 });
+        localStorage.setItem("completedTasks", JSON.stringify(task));
+    </script>
 </body>
 </html>

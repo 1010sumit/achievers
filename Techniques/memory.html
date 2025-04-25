@@ -217,7 +217,11 @@
 
 
     <!-- ========= end of    Footer   =========== -->
-
+    <script>
+        let task = JSON.parse(localStorage.getItem("completedTasks")) || [];
+        task.push({ name: "Practice Loci Technique", score: 10 });
+        localStorage.setItem("completedTasks", JSON.stringify(task));
+      </script>
 </body>
 </head>
 </html>

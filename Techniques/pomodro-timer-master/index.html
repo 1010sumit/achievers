@@ -53,5 +53,10 @@
     <script src="settings.js"></script>
     <script src="timer.js"></script>
     <script src="progress.js"></script>
+    <script>
+      let task = JSON.parse(localStorage.getItem("completedTasks")) || [];
+      task.push({ name: "Practice Pomodoro Technique", score: 10 });
+      localStorage.setItem("completedTasks", JSON.stringify(task));
+    </script>
   </body>
 </html>
